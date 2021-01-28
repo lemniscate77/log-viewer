@@ -48,7 +48,7 @@ public class LogbackConfigImporter implements Supplier<Map<Path, LogFormat>> {
 
                 try {
                     logFormat.getFields(); // check errors.
-                } catch (IllegalArgumentException e) {
+                } catch (IllegalArgumentException | UnsupportedOperationException e) {
                     LOG.error("Failed to import log configuration, invalid pattern: " + patternEncoder.getPattern(), e);
                     return;
                 }
